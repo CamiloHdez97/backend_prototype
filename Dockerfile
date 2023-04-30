@@ -1,16 +1,19 @@
-FROM node:20.0.0-bullseye
+FROM node:16
 
-RUN apt-get update && apt-get upgrade -y && apt-get install tail -y
+# Create app directory
+WORKDIR /usr/src/app
 
-#RUN npm install
+# Install app dependencies
+# A wildcard is used to ensure both package.json AND package-lock.json are copied
+# where available (npm@5+)
+COPY package*.json ./
 
-#RUN npm run start
+RUN npm install
+# If you are building your code for production
+# RUN npm ci --omit=dev
 
+# Bundle app source
+COPY . .
 
-#WORKDIR /app
-
-#iniciar el servicio web node
-#CMD ["node", "src/index.js"]
-
-CMD ["tail -f /dev/null"]
-
+EXPOSE 8080
+CMD [ "node", "server.js" ]
