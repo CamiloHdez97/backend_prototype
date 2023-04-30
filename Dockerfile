@@ -1,20 +1,18 @@
-FROM nginx:stable-bullseye
+FROM node:20.0.0-bullseye
 
-RUN curl -sL https://deb.nodesource.com/setup_18.x | bash -
+RUN apt update && apt upgrade -y
 
-RUN apt install -y nodejs
+RUN npm install
 
-CMD ["/bin/bash"]
+RUN npm run start
 
-#RUN apt update && apt upgrade -y
-WORKDIR /usr/share/nginx/html
 
-#COPY ./nginx.conf /etc/nginx/conf.d/default.conf
+WORKDIR /app
 
 #CMD ["/bin/bash"]
 
-#iniciar el servicio web nginx
-CMD ["nginx", "-g", "daemon off;"]
+#iniciar el servicio web node
+CMD ["node", "src/index.js;"]
 
 #CMD ["tail -f /dev/null"]
 
