@@ -1,6 +1,6 @@
 FROM node:20.0.0-bullseye
 
-RUN apt update && apt upgrade -y && apt install tail
+RUN apt-get update && apt-get upgrade -y && apt-get install tail -y
 
 #RUN npm install
 
