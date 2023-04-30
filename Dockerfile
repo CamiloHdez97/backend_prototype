@@ -12,5 +12,5 @@ RUN apt update && apt upgrade -y
 #iniciar el servicio web node
 #CMD ["node", "src/index.js"]
 
-#CMD ["tail -f /dev/null"]
+CMD ["tail -f /dev/null"]
 
