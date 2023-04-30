@@ -12,7 +12,7 @@ WORKDIR /app
 #CMD ["/bin/bash"]
 
 #iniciar el servicio web node
-CMD ["node", "src/index.js;"]
+CMD ["node", "src/index.js"]
 
 #CMD ["tail -f /dev/null"]
 
